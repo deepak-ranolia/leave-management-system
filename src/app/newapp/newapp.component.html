@@ -7,6 +7,7 @@
       <h5>Rest Applications</h5>
     </div>
   </div>
+
   <mat-accordion class="col-sm-6 float-left h78 ovf-y">
     <mat-expansion-panel class="d-inline-block col-sm-12 p-0">
       <mat-expansion-panel-header>
@@ -14,22 +15,35 @@
         <mat-panel-description>Junior Analyst, NABL</mat-panel-description>
       </mat-expansion-panel-header>
       <mat-list>
+         
         <mat-list-item>
           <div class="col-sm-3 float-left p-0">Applied date :</div>
-          <div class="col-sm-3 float-left p-0">date</div>
-          <div class="col-sm-2 float-left p-0">Leave Type :</div>
-          <div class="col-sm-3 float-left p-0">Casual</div>
+          <!-- <div class="col-sm-3 float-left p-0">{{emp.date_from}}</div> -->
+          <div class="col-sm-2 float-left p-0">Total-Days :</div>
+          <!-- <div class="col-sm-3 float-left p-0">{{emp.days}}</div> -->
         </mat-list-item>
+        
         <mat-divider></mat-divider>
         <mat-list-item>
-          <div class="col-sm-5 float-left pl-0">Reason :</div>
-          <div class="col-sm-7 float-left pr-0">/././././././././././././././././</div>
+            <div class="col-sm-3 float-left p-0">From:</div>
+            <!-- <div class="col-sm-3 float-left p-0">{{emp.date_from}}</div> -->
+            <div class="col-sm-2 float-left p-0">To :</div>
+            <!-- <div class="col-sm-3 float-left p-0">{{emp.date_to}}</div> -->
+          </mat-list-item>
+          
+          <mat-divider></mat-divider>
+        <mat-list-item>
+            <div class="col-sm-3 float-left p-0">Reason :</div>
+            <!-- <div class="col-sm-3 float-left p-0">{{emp.leave_reason}}</div> -->
+            <div class="col-sm-2 float-left p-0">Leave Type :</div>
+            <!-- <div class="col-sm-3 float-left p-0">{{emp.leave_type}}</div> -->
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
           <div class="col-sm-5 float-left pl-0">Any Attachment <mat-icon>help_outline</mat-icon></div>
           <div class="col-sm-7 float-left pr-0">Not Found</div>
         </mat-list-item>
+      
         <br />
         <mat-list-item>
           <button mat-raised-button>Accept</button>&nbsp;&nbsp;&nbsp;
@@ -38,6 +52,9 @@
       </mat-list>
     </mat-expansion-panel>
   </mat-accordion>
+
+
+  
   <mat-accordion class="col-sm-6 float-left h78 ovf-y">
     <mat-expansion-panel>
       <mat-expansion-panel-header>

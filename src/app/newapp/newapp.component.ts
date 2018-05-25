@@ -8,12 +8,20 @@ import { LmsService } from '../lms.service';
 })
 export class NewappComponent implements OnInit {
   loader : boolean = false
+  application = new Array()
 
   constructor( private lms:LmsService) {
     this.lms.emitsload.subscribe( el => this.loader = el )
     this.lms.showLoader()
+
+    this.lms.emitgetApplicationDetail.subscribe( r => {
+      this.application = r
+      console.log(this.application)
+    })
   }
 
-  ngOnInit(){ }
+  ngOnInit(){
+    this.lms.getApplicationDetail()
+   }
 
 }

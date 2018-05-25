@@ -12,6 +12,7 @@ export class LmsService {
   emitgetEmployees = new EventEmitter<any>()
   emitLogin = new EventEmitter<any>()
   emitErr = new EventEmitter<any>()
+  emitgetApplicationDetail = new EventEmitter<any>()
 
   constructor( private api: ApiService, private router: Router, public snackBar: MatSnackBar ) { }
 
@@ -52,11 +53,14 @@ export class LmsService {
 
   getEmployees(){
     this.api.GetEmployeeDetails().subscribe( el => {
-      //console.log(el)
-      /* if ( el.success ) */ this.emitgetEmployees.emit(el)
-      /* else */ console.log(el) //this.snackBar.open( 'el.success was not true')
+     // console.log(el)
+      if ( el.success ) this.emitgetEmployees.emit(el.data)
+      else console.log(el) //this.snackBar.open( 'el.success was not true')
     }, err => this.snackBar.open( 'err found') )
   }
+
+  
+  
   addEmp(employee:any) {
     this.api.addEmp(employee).subscribe( /*  el => {
       if ( el.success ) console.log(el) //this.router.navigate(['/employee-list'])
@@ -73,6 +77,7 @@ export class LmsService {
       // if ( el.success == true )
       this.getEmployees()
     }, err => alert(err))
+    this.router.navigate(['/employee-list'])
   }
 
   deleteEmp( qci_id:any ){
@@ -84,5 +89,15 @@ export class LmsService {
       //   alert("Try Again Later");
       // }
     }, err => alert(err) )
+  }
+
+
+  
+  getApplicationDetail(){
+    this.api.GetApplicationDetail().subscribe(el => {
+     if ( el.success ) this.emitgetApplicationDetail.emit( el.data )
+    else console.log( el )
+    }, err => console.log( err )
+   )
   }
 }

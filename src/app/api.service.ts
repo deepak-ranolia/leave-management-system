@@ -8,9 +8,9 @@ import 'rxjs/add/operator/map'
 @Injectable()
 
 export class ApiService {
-
-  // URL:string = "http://13.127.13.175:5000/"
-  URL:string = "http://192.168.15.219:5000/"
+  // URL:string = "http://13.127.13.175:5000/ 192.168.15.219:5000"
+  // URL:string = "http://192.168.15.219:5000/"
+  URL:string = "http://192.168.15.55:5000/"
   token: string // Useful in Authentication
   headers: any // Useful when backend and frontend have different IP's
   opts : any
@@ -45,14 +45,16 @@ export class ApiService {
 
   // Post( Update Existing Employee ) requests
   updateEmployee( data : any ) {
-    return this.http.post( this.URL+'lms/editEmployeeDetails', data, this.opts).map( r => {
-      r.json() 
-      this.router.navigate(['/employee-list'])
-    })
+    return this.http.post( this.URL+'lms/editEmployeeDetails', data, this.opts).map(r =>console.log( r.json() )) 
   }
   
   // Post( Delete Existing Employee ) requests
   deleteEmp( data : any ) {
     return this.http.post( this.URL+'lms/deleteEmployee', JSON.stringify(data), this.opts).map( r => r.json() )
+  }
+
+
+  GetApplicationDetail(){
+    return this.http.get( this.URL+'lms/application',this.opts).map( r => r.json())
   }
 }

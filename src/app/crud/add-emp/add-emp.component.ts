@@ -59,6 +59,7 @@ export class AddEmpComponent implements OnInit {
 
   addEmployee(){
     this.lms.addEmp(this.employee)
+    this.router.navigate(['/employee-list'])
   }
 
 }

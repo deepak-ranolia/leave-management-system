@@ -18,7 +18,7 @@ export class CrudComponent implements OnInit {
 
     this.lms.emitgetEmployees.subscribe( r => {
       this.employee = r
-      console.log(this.employee)
+      //console.log(this.employee)
     })
     
     setTimeout(() => {
