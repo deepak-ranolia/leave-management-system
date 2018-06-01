@@ -9,6 +9,7 @@ import { LmsService } from '../lms.service';
 export class NewappComponent implements OnInit {
   loader : boolean = false
   application = new Array()
+  employee = new Array
 
   constructor( private lms:LmsService) {
     this.lms.emitsload.subscribe( el => this.loader = el )
@@ -18,10 +19,18 @@ export class NewappComponent implements OnInit {
       this.application = r
       console.log(this.application)
     })
+
+    
+    this.lms.emitgetEmployees.subscribe( r => {
+      this.employee = r
+       //console.log(this.employee)
+    })
+
   }
 
   ngOnInit(){
     this.lms.getApplicationDetail()
+    this.lms.getEmployees()
    }
 
 }

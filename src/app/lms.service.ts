@@ -35,7 +35,7 @@ export class LmsService {
     }
   }
 
-  login( uname: string, pwd: string ) {
+  login( uname: string, pwd: string ) { 
     let tmp : any
     tmp = { email:uname, password:pwd }
     let temp = JSON.stringify(tmp)
@@ -73,11 +73,11 @@ export class LmsService {
 
   updateEmployee(employee:any){
     this.api.updateEmployee(employee).subscribe( el => { 
+      this.router.navigate(['/employee-list'])
       // console.log(el)
       // if ( el.success == true )
       this.getEmployees()
     }, err => alert(err))
-    this.router.navigate(['/employee-list'])
   }
 
   deleteEmp( qci_id:any ){
@@ -91,8 +91,6 @@ export class LmsService {
     }, err => alert(err) )
   }
 
-
-  
   getApplicationDetail(){
     this.api.GetApplicationDetail().subscribe(el => {
      if ( el.success ) this.emitgetApplicationDetail.emit( el.data )
@@ -100,4 +98,5 @@ export class LmsService {
     }, err => console.log( err )
    )
   }
+  
 }

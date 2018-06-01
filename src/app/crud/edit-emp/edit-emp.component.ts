@@ -49,7 +49,5 @@ export class EditEmpComponent implements OnInit {
   
   updateEmployee(){
     this.lms.updateEmployee(this.employee)
-   
-   
   }
 }

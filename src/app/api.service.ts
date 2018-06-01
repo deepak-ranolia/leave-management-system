@@ -45,7 +45,7 @@ export class ApiService {
 
   // Post( Update Existing Employee ) requests
   updateEmployee( data : any ) {
-    return this.http.post( this.URL+'lms/editEmployeeDetails', data, this.opts).map(r =>console.log( r.json() )) 
+    return this.http.post( this.URL+'lms/editEmployeeDetails', data, this.opts).map(r =>console.log( r.json()))
   }
   
   // Post( Delete Existing Employee ) requests

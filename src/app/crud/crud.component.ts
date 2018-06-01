@@ -37,5 +37,6 @@ export class CrudComponent implements OnInit {
   }
   deleteEmp(qci_id){
     this.lms.deleteEmp(qci_id)
+    
   }
 }

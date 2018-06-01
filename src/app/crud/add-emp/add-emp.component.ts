@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-emp',
   templateUrl: './add-emp.component.html',
-  styleUrls: ['./add-emp.component.scss']
+  styleUrls: ['./add-emp.component.scss'],
 })
 
 export class AddEmpComponent implements OnInit {
@@ -20,7 +20,8 @@ export class AddEmpComponent implements OnInit {
   
   employee : any = new Object()
   loader : boolean = false
-
+  form: any;
+  
   constructor( private lms: LmsService, private router : Router ) {
     
     this.lms.emitsload.subscribe( el => this.loader = el )
@@ -57,9 +58,19 @@ export class AddEmpComponent implements OnInit {
     this.type_of_employee = item
   }
 
-  addEmployee(){
+  addEmployee({value, valid}){
     this.lms.addEmp(this.employee)
     this.router.navigate(['/employee-list'])
   }
+
+   keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
+
+
 
 }
